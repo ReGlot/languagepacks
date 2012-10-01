@@ -13,11 +13,17 @@ if ( $langstring ) {
 }
 unset($langstring);
 
+$projstring = get_input('cores-selection');
+if ( $projstring ) {
+    $filters['projs'] = explode('|', $projstring);
+} else {
+    $filters['projs'] = null;
+}
+unset($projstring);
+
 $projstring = get_input('plugins-selection');
 if ( $projstring ) {
-	$filters['projs'] = explode('|', $projstring);
-} else {
-	$filters['projs'] = null;
+	$filters['projs'] = array_merge($filters['projs'], explode('|', $projstring));
 }
 unset($projstring);
 
