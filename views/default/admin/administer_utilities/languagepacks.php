@@ -14,7 +14,7 @@ $toggle_link = elgg_view('output/url', array(
 ));
 $form_class = 'elgg-module elgg-module-inline hidden';
 
-$languages = get_installed_translations();
+$languages = elgglp_get_installed_translations();
 
 $form_body = '<ul class="languagepacks-select-table">';
 $form_body .= '<li>';
