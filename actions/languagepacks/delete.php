@@ -1,4 +1,9 @@
 <?php
+if ( get_current_language() != 'en' ) {
+    register_error(elgg_echo('languagepacks:error:delete_lang'));
+    forward(REFERER);
+}
+
 require_once elgg_get_plugins_path() . 'languagepacks/lib/elgg_language_packs/elgg_language_packs.php';
 
 $release = get_version(true);
@@ -46,6 +51,18 @@ switch ( elgglp_recurse_language_pack($olddir, $filters, $callback) ) {
 		register_error(elgg_echo('languagepacks:error:version'));
 		forward(REFERER);
     case ELGGLP_OK:
+        // if the language does not exist anymore, remove JavaScript file
+        $languages = elgglp_get_installed_translations();
+        $jsdir = "$olddir/views/default/js/languages";
+        $jsfiles = array_merge(glob("$jsdir/??.php"), glob("$jsdir/??[-_]??.php"));
+        foreach ( $jsfiles as $jsfile ) {
+            // basic name of the file is the locale name
+            $lang = basename($jsfile, '.php');
+            if ( $lang != 'en' && !$languages[$lang] && file_exists($jsfile) ) {
+                @unlink($jsfile);
+            }
+        }
+        // return result of deletion
         $ts = time();
         $token = generate_action_token($ts);
         $flush_link = elgg_get_site_url() . "action/admin/site/flush_cache?__elgg_ts=$ts&__elgg_token=$token";

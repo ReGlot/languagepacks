@@ -61,6 +61,7 @@ $loc = array(
     'languagepacks:delete:explain' => 'Click the button below to physically delete the language files that match your selections from the file system.<br>
     WARNING: This will permanently delete the files. You can reinstall them at any time if you have made a backup copy with the export button above.<br>
     NOTE: The English language files will NOT be deleted ever, regardless of your selections.',
+    'languagepacks:error:delete_lang' => 'In order to safely delete language files from the system, you must ensure that you are running the delete action with English as your current language',
     /// Extra language code with country for language list
     'pt-br' => 'Brazilian Portuguese',
     /// Extra language code with country for language list
