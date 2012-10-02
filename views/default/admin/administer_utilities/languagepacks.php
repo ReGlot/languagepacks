@@ -168,17 +168,18 @@ $form_body_2 .= '</li></ul>';
 
 <p><br/><?php echo elgg_echo('languagepacks:intro') ?><br/><br/></p>
 
-<? echo elgg_view_form('languagepacks/export', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
+<?php echo elgg_view_form('languagepacks/export', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
 
 <p><br/><br/></p>
 
-<? echo elgg_view_form('languagepacks/import', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
+<?php echo elgg_view_form('languagepacks/import', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
 
 <p><br/><br/></p>
 
-<? echo elgg_view_form('languagepacks/delete', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
+<?php echo elgg_view_form('languagepacks/delete', array('class' => 'object-selection', 'enctype' => 'multipart/form-data')); ?>
 
 <script>
+
 $('#add').click(function() {
 	return !$('#select1_locales option:selected').remove().appendTo('#select2_locales');
 });
