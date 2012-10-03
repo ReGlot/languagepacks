@@ -31,7 +31,7 @@ unset($projstring);
 
 $projstring = get_input('plugins-selection');
 if ( $projstring ) {
-    $filters['projs'] = array_merge($filters['projs'], explode('|', $projstring));
+    $filters['projs'] = array_merge((array)$filters['projs'], explode('|', $projstring));
 }
 unset($projstring);
 
@@ -69,5 +69,5 @@ header('Content-Type: application/zip');
 header("Content-Disposition: attachment; filename=\"$file2download\"");
 readfile($zipfile);
 unlink($zipfile);
-elgg_deltree($newdir);
+elgglp_deltree($newdir);
 exit();
