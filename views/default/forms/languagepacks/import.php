@@ -22,7 +22,7 @@
 		)) . ' ';
 		echo elgg_echo('languagepacks:import:overwrite') . ' </p><p>';
 		echo elgg_view('input/checkbox', array(
-			'name' => 'ignore_en',
+			'name' => 'ignore-en',
 		)) . ' ';
 		echo elgg_echo('languagepacks:import:ignore_en');
 	?>

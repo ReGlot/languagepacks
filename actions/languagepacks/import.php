@@ -25,13 +25,13 @@ unset($projstring);
 
 $projstring = get_input('plugins-selection');
 if ( $projstring ) {
-    $filters['projs'] = array_merge($filters['projs'], explode('|', $projstring));
+    $filters['projs'] = array_merge((array)$filters['projs'], explode('|', $projstring));
 }
 unset($projstring);
 
 $filters['overwrite'] = (bool)get_input('overwrite');
 
-$filters['ignore_en'] = (bool)get_input('ignore_en');
+$filters['ignore_en'] = (bool)get_input('ignore-en');
 
 $filters['dst_dir'] = elgg_get_root_path();
 

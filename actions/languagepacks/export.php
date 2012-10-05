@@ -35,7 +35,7 @@ if ( $projstring ) {
 }
 unset($projstring);
 
-$filters['ignore_en'] = (bool)get_input('ignore_en');
+$filters['ignore_en'] = (bool)get_input('ignore-en');
 $filters['elgg_release'] = $release;
 $filters['needs_manifest'] = true;
 
